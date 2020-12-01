@@ -11,7 +11,9 @@ version = project.mod_version
 group = project.maven_group
 
 repositories {
+	maven { url 'https://maven.fabricmc.net' }
 	maven { url 'https://jitpack.io' }
+	mavenLocal()
 }
 
 dependencies {
@@ -25,6 +27,9 @@ dependencies {
 
 	// PSA: Some older mods, compiled on Loom 0.2.1, might have outdated Maven POMs.
 	// You may need to force-disable transitiveness on them.
+	
+	implementation 'net.trollyloki.bukkit_rich_presence.core:BukkitRichPresenceCore:0.1'
+	include 'net.trollyloki.bukkit_rich_presence.core:BukkitRichPresenceCore:0.1'
 	
 	implementation 'com.github.adamheinrich:native-utils:e6a3948966'
 	include 'com.github.adamheinrich:native-utils:e6a3948966'

@@ -15,6 +15,11 @@
 	</repositories>
 
 	<dependencies>
+		<dependency>
+			<groupId>net.trollyloki.bukkit_rich_presence.core</groupId>
+			<artifactId>BukkitRichPresenceCore</artifactId>
+			<version>0.1</version>
+		</dependency>
 		<!--This adds the Spigot API artifact to the build -->
 		<dependency>
 			<groupId>org.spigotmc</groupId>
@@ -31,5 +36,27 @@
 				<filtering>true</filtering>
 			</resource>
 		</resources>
+		<plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-shade-plugin</artifactId>
+        <version>3.2.4</version>
+        <configuration>
+        	<artifactSet>
+        		<includes>
+        			<include>net.trollyloki.bukkit_rich_presence.core:BukkitRichPresenceCore</include>
+        		</includes>
+        	</artifactSet>
+        </configuration>
+        <executions>
+          <execution>
+            <phase>package</phase>
+            <goals>
+              <goal>shade</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+    </plugins>
 	</build>
 </project>
