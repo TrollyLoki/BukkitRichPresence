@@ -1,11 +1,14 @@
 package net.trollyloki.bukkit_rich_presence.fabric;
 
+import java.io.IOException;
+
 import io.netty.buffer.Unpooled;
 import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientLifecycleEvents;
 import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents;
 import net.fabricmc.fabric.api.network.ClientSidePacketRegistry;
 import net.minecraft.network.PacketByteBuf;
 import net.minecraft.util.Identifier;
+import net.trollyloki.bukkit_rich_presence.core.Activity;
 import net.trollyloki.bukkit_rich_presence.core.Constants;
 
 public class PacketManager {
@@ -22,7 +25,11 @@ public class PacketManager {
 		ClientSidePacketRegistry.INSTANCE.register(new Identifier(Constants.CLIENT_ID_PACKET_ID), (context, data) -> {
 			mod.getDiscordGameSDK().newCore(data.readLong());
 			if (tempData != null) {
-				parseActivityUpdate(tempData);
+				try {
+					parseActivityUpdate(tempData);
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
 				tempData = null;
 			}
 		});
@@ -30,7 +37,11 @@ public class PacketManager {
 		ClientSidePacketRegistry.INSTANCE.register(new Identifier(Constants.ACTIVITY_UPDATE_PACKET_ID),
 				(context, data) -> {
 					if (mod.getDiscordGameSDK().hasCore()) {
-						parseActivityUpdate(data);
+						try {
+							parseActivityUpdate(data);
+						} catch (IOException e) {
+							e.printStackTrace();
+						}
 					} else {
 						tempData = data;
 						requestClientId();
@@ -39,8 +50,14 @@ public class PacketManager {
 
 	}
 
-	public void parseActivityUpdate(PacketByteBuf data) {
-
+	public void parseActivityUpdate(PacketByteBuf data) throws IOException {
+		if (data.isReadable()) {
+			byte[] array = new byte[data.capacity()];
+			data.getBytes(0, array);
+			mod.getDiscordGameSDK().updateActivity(new Activity(array));
+		} else {
+			mod.getDiscordGameSDK().clearActivity();
+		}
 	}
 
 	public void requestClientId() {
