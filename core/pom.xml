@@ -5,4 +5,9 @@
 	<groupId>net.trollyloki.bukkit_rich_presence.core</groupId>
 	<artifactId>BukkitRichPresenceCore</artifactId>
 	<version>0.1</version>
+	
+	<properties>
+    <maven.compiler.source>1.8</maven.compiler.source>
+    <maven.compiler.target>1.8</maven.compiler.target>
+  </properties>
 </project>
