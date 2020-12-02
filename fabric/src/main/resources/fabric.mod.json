@@ -1,9 +1,9 @@
 {
   "schemaVersion": 1,
-  "id": "bukkit_rich_presence",
+  "id": "bukkit_rich_presence_fabric",
   "version": "${version}",
 
-  "name": "bukkit-rich-presence",
+  "name": "bukkit-rich-presence-fabric",
   "description": "Fabric mod that allows Minecraft servers to customize Discord Rich Presence for their players",
   "authors": [
     "TrollyLoki"
@@ -17,7 +17,7 @@
   },
   
   "mixins": [
-    "bukkit_rich_presence.mixins.json"
+    "bukkit_rich_presence_fabric.mixins.json"
   ],
 
   "depends": {
