@@ -4,13 +4,13 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 public class BukkitRichPresencePlugin extends JavaPlugin {
 
-	private PluginMessageManager manager;
+	private RichPresenceManager manager;
 
 	@Override
 	public void onEnable() {
 		saveDefaultConfig();
 
-		manager = new PluginMessageManager(this);
+		manager = new RichPresenceManager(this);
 	}
 
 	@Override
@@ -18,7 +18,7 @@ public class BukkitRichPresencePlugin extends JavaPlugin {
 
 	}
 
-	public PluginMessageManager getManager() {
+	public RichPresenceManager getManager() {
 		return manager;
 	}
 
