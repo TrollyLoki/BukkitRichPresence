@@ -1,2 +1,2 @@
 install:
-   - mvn -f /bukkit/pom.xml install -DskipTests
+   - mvn -f bukkit/pom.xml install -DskipTests
