@@ -141,8 +141,6 @@ public class Activity {
 			this.spectateSecret = DataUtils.readString(in);
 
 		}
-
-		System.out.println(toString());
 	}
 
 	public Type getType() {
@@ -266,8 +264,6 @@ public class Activity {
 	}
 
 	public byte[] serialize() throws IOException {
-		System.out.println(toString());
-
 		try (ByteArrayOutputStream stream = new ByteArrayOutputStream();
 				DataOutputStream out = new DataOutputStream(stream)) {
 
