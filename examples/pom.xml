@@ -4,7 +4,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>net.trollyloki.bukkit_rich_presence.examples</groupId>
 	<artifactId>BukkitRichPresenceExamples</artifactId>
-	<version>0.1</version>
+	<version>0.1.1</version>
 
 	<repositories>
 		<!-- This adds the Spigot Maven repository to the build -->
@@ -18,23 +18,23 @@
 		<dependency>
 			<groupId>net.trollyloki.bukkit_rich_presence.bukkit</groupId>
 			<artifactId>BukkitRichPresence</artifactId>
-			<version>0.1</version>
+			<version>0.1.1</version>
 		</dependency>
 		<!--This adds the Spigot API artifact to the build -->
 		<dependency>
 			<groupId>org.spigotmc</groupId>
-	<artifactId>spigot-api</artifactId>
+			<artifactId>spigot-api</artifactId>
 			<version>1.16.4-R0.1-SNAPSHOT</version>
 			<scope>provided</scope>
 		</dependency>
 	</dependencies>
-	
+
 	<build>
-	<resources>
+		<resources>
 			<resource>
 				<directory>src/main/resources</directory>
 				<filtering>true</filtering>
 			</resource>
 		</resources>
-		</build>
+	</build>
 </project>

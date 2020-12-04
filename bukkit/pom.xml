@@ -4,7 +4,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>net.trollyloki.bukkit_rich_presence.bukkit</groupId>
 	<artifactId>BukkitRichPresence</artifactId>
-	<version>0.1</version>
+	<version>0.1.1</version>
 
 	<properties>
 		<maven.compiler.source>1.8</maven.compiler.source>
@@ -23,7 +23,7 @@
 		<dependency>
 			<groupId>net.trollyloki.bukkit_rich_presence.core</groupId>
 			<artifactId>BukkitRichPresenceCore</artifactId>
-			<version>0.1</version>
+			<version>0.1.1</version>
 		</dependency>
 		<!--This adds the Spigot API artifact to the build -->
 		<dependency>
