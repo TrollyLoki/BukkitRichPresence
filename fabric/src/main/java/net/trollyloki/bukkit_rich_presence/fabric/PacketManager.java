@@ -1,6 +1,7 @@
 package net.trollyloki.bukkit_rich_presence.fabric;
 
 import java.io.IOException;
+import java.nio.charset.StandardCharsets;
 
 import io.netty.buffer.Unpooled;
 import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientLifecycleEvents;
@@ -61,9 +62,8 @@ public class PacketManager {
 	}
 
 	public void requestClientId() {
-		PacketByteBuf buf = new PacketByteBuf(Unpooled.buffer());
-		buf.writeString(mod.getVersion());
-		ClientSidePacketRegistry.INSTANCE.sendToServer(new Identifier(Constants.CLIENT_ID_REQUEST_PACKET_ID), buf);
+		ClientSidePacketRegistry.INSTANCE.sendToServer(new Identifier(Constants.CLIENT_ID_REQUEST_PACKET_ID),
+				new PacketByteBuf(Unpooled.wrappedBuffer(BukkitRichPresenceMod.VERSION.getBytes(StandardCharsets.UTF_8))));
 	}
 
 }
